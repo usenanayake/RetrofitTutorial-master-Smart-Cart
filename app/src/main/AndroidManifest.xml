@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tuts.prakash.retrofittutorial">
 
-    <!--Internet Permission-->
+    <!-- Internet Permission -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,6 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".login" >
+
+        </activity>
+        <activity android:name=".menu" />
+        <activity android:name=".promotion1.promotion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

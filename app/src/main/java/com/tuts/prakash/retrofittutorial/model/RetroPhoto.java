@@ -59,6 +59,8 @@ public class RetroPhoto {
         this.__v = __v;
     }
 
+
+
 //    public String getThumbnailUrl() {
 //        return thumbnailUrl;
 //    }
