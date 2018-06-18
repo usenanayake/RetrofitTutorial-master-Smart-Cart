@@ -54,7 +54,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        holder.txtTitle.setText(dataList.get(position).getname());
+        if(dataList.get(position).getname().equals("015E66")){
+            // holder.txtTitle.setText(dataList.get(position).getname());
+            holder.txtTitle.setText("denim");
+
 
 //        Picasso.Builder builder = new Picasso.Builder(context);
 //        builder.downloader(new OkHttp3Downloader(context));
@@ -62,6 +65,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 //                .placeholder((R.drawable.ic_launcher_background))
 //                .error(R.drawable.ic_launcher_background)
 //                .into(holder.coverImage);
+        }
+       else {
+            holder.txtTitle.setText("shirt");
+
+       }
 
     }
 
