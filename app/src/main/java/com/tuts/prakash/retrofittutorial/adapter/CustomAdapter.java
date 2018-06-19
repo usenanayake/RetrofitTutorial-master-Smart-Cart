@@ -34,6 +34,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         public final View mView;
 
         TextView txtTitle;
+        TextView txtTitle2;
         private ImageView coverImage;
 
         CustomViewHolder(View itemView) {
@@ -41,6 +42,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             mView = itemView;
 
             txtTitle = mView.findViewById(R.id.title);
+            txtTitle2 = mView.findViewById(R.id.title2);
             coverImage = mView.findViewById(R.id.coverImage);
         }
     }
@@ -54,9 +56,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        if(dataList.get(position).getname().equals("015E66")){
-            // holder.txtTitle.setText(dataList.get(position).getname());
-            holder.txtTitle.setText("denim");
+        //if(dataList.get(position).getname().equals("015E66")){
+            holder.txtTitle.setText(dataList.get(position).getname());
+            holder.txtTitle2.setText(dataList.get(position).getprice());
+            //holder.txtTitle.setText("denim");
 
 
 //        Picasso.Builder builder = new Picasso.Builder(context);
@@ -65,11 +68,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 //                .placeholder((R.drawable.ic_launcher_background))
 //                .error(R.drawable.ic_launcher_background)
 //                .into(holder.coverImage);
-        }
-       else {
-            holder.txtTitle.setText("shirt");
-
-       }
+//        }
+//       else {
+//            holder.txtTitle.setText("shirt");
+//
+//       }
 
     }
 

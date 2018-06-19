@@ -1,17 +1,23 @@
 package com.tuts.prakash.retrofittutorial.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.tuts.prakash.retrofittutorial.R;
 import com.tuts.prakash.retrofittutorial.adapter.CustomAdapter;
+import com.tuts.prakash.retrofittutorial.menu;
 import com.tuts.prakash.retrofittutorial.model.RetroPhoto;
 import com.tuts.prakash.retrofittutorial.network.GetDataService;
 import com.tuts.prakash.retrofittutorial.network.RetrofitClientInstance;
+import com.tuts.prakash.retrofittutorial.payment;
+import com.tuts.prakash.retrofittutorial.userRegister;
 
 import java.util.List;
 
@@ -52,6 +58,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button btn= (Button) findViewById(R.id.pay);
+
+        btn.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, payment.class));
+                    }
+                }
+        );
+
+
     }
 
     /*Method to generate List of data using RecyclerView with custom adapter*/
