@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/visa"
         android:orientation="vertical">
 
         <TextView
@@ -16,6 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Payment Gateway"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#0066ff"
+            android:textSize="50sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

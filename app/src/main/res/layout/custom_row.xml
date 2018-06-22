@@ -29,7 +29,8 @@
             android:layout_marginStart="138dp"
             android:lines="2"
             android:paddingTop="20dp"
-            android:text="title" />
+            android:text="title"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/title2"
