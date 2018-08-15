@@ -1,7 +1,11 @@
 package com.tuts.prakash.retrofittutorial;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.tuts.prakash.retrofittutorial.activity.MainActivity;
@@ -20,30 +24,61 @@ import retrofit2.Response;
 
 public class login extends AppCompatActivity {
 
+
+    private EditText name1;
+    private EditText price1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
 
-        PostData service = RetrofitClientInstance.getRetrofitInstance().create(PostData.class);
 
-        PostDetailsRequest post = new PostDetailsRequest("name", "price");
-        Call<PostDetailsRespond> call = service.savePost(post);
-        call.enqueue(new Callback<PostDetailsRespond>() {
+        Button btn= (Button) findViewById(R.id.send);
 
-            @Override
-            public void onResponse(Call<PostDetailsRespond> call, Response<PostDetailsRespond> response) {
-                System.out.println("Hello, World");
-                Toast.makeText(login.this, "Success", Toast.LENGTH_SHORT).show();
-            }
+        btn.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
 
-            @Override
-            public void onFailure(Call<PostDetailsRespond> call, Throwable t) {
-                System.out.println("invalid");
-                Toast.makeText(login.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-            }
-        });
+                        name1 = findViewById(R.id.name);
+                        String value = name1.getText().toString();
+
+                        price1 = findViewById(R.id.price);
+                        String value2 =  price1.getText().toString();
+
+                        //startActivity(new Intent(login.this, menu.class));
+
+                        PostData service = RetrofitClientInstance.getRetrofitInstance().create(PostData.class);
+
+                        PostDetailsRequest post = new PostDetailsRequest(value,value2);
+                        Call<PostDetailsRespond> call = service.savePost(post);
+                        //service.deleteGist("fwgw");
+                        call.enqueue(new Callback<PostDetailsRespond>() {
+
+                            @Override
+                            public void onResponse(Call<PostDetailsRespond> call, Response<PostDetailsRespond> response) {
+                                System.out.println("Success");
+                                Toast.makeText(login.this, "Success", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<PostDetailsRespond> call, Throwable t) {
+                                System.out.println("invalid");
+                                Toast.makeText(login.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                                t.printStackTrace();
+                            }
+                        });
+
+
+                        startActivity(new Intent(login.this, menu.class));
+                    }
+                }
+        );
+
+
+
+
 
 
     }

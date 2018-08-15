@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tuts.prakash.retrofittutorial.R;
@@ -30,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
     ProgressDialog progressDoalog;
+    private TextView textView7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        textView7 = findViewById(R.id.textView7);
         progressDoalog = new ProgressDialog(MainActivity.this);
         progressDoalog.setMessage("Loading....");
         progressDoalog.show();
@@ -74,11 +76,27 @@ public class MainActivity extends AppCompatActivity {
 
     /*Method to generate List of data using RecyclerView with custom adapter*/
     private void generateDataList(List<RetroPhoto> photoList) {
+
         recyclerView = findViewById(R.id.customRecyclerView);
         adapter = new CustomAdapter(this,photoList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+
+        //createSum(photoList);
+        this.textView7.setText("Total");
     }
 
+//    private void createSum(List<RetroPhoto> photoList) {
+//        int sum = 0;
+//        for(RetroPhoto retroPhoto: photoList) {
+//            sum += Integer.parseInt(retroPhoto.getprice());
+//        }
+//        updateUI(sum);
+//    }
+//
+//    private void updateUI(int sum) {
+//        this.textView7.setText(sum);
+//    }
 }

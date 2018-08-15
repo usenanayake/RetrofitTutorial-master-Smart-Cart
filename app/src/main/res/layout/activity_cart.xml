@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu">
-
+    tools:context=".cart">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <LinearLayout
@@ -18,19 +16,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/cart"
+            <TextView
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:layout_marginTop="100dp"
-                android:background="#00838f"
-                android:text="My Cart"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
+                android:layout_marginTop="50dp"
+                android:text="Select Your Cart"
+                android:textAlignment="center"
+                android:textColor="#001a33"
+                android:textSize="25sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,23 +35,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button3"
+            <EditText
+                android:id="@+id/editText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:layout_marginTop="50dp"
+                android:ems="10"
+                android:hint="Enter Cart ID"
+                android:inputType="textPersonName"
+                android:textColor="#001a33"
+                android:textColorHint="#00251a"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="50dp"
                 android:background="#00838f"
-                android:text="Promotions"
+                android:text="Shop Now"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
-                android:textSize="18sp" />
-
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
+
     </LinearLayout>
-
-
 </android.support.constraint.ConstraintLayout>
-
-
-

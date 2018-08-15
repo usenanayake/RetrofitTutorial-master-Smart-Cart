@@ -7,34 +7,34 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class userRegister extends AppCompatActivity {
+public class login1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_register);
+        setContentView(R.layout.activity_login1);
 
-        Button btn= (Button) findViewById(R.id.register);
+        Button btn= (Button) findViewById(R.id.login);
 
         btn.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        startActivity(new Intent(userRegister.this, login1.class));
+                        startActivity(new Intent(login1.this, menu.class));
                     }
                 }
         );
 
 
-
-        TextView txt= (TextView) findViewById(R.id.login);
+        TextView txt= (TextView) findViewById(R.id.register);
 
         txt.setOnClickListener(
                 new TextView.OnClickListener() {
                     public void onClick(View v) {
-                        startActivity(new Intent(userRegister.this, login1.class));
+                        startActivity(new Intent(login1.this, userRegister.class));
                     }
                 }
         );
+
 
     }
 }

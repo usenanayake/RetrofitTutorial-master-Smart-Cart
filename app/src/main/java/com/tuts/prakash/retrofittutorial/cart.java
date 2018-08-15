@@ -8,21 +8,22 @@ import android.widget.Button;
 
 import com.tuts.prakash.retrofittutorial.activity.MainActivity;
 
-public class menu extends AppCompatActivity {
+public class cart extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_cart);
 
-        Button btn= (Button) findViewById(R.id.cart);
+        Button btn= (Button) findViewById(R.id.shop);
 
         btn.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        startActivity(new Intent(menu.this, cart.class));
+                        startActivity(new Intent(cart.this, MainActivity.class));
                     }
                 }
         );
+
     }
 }

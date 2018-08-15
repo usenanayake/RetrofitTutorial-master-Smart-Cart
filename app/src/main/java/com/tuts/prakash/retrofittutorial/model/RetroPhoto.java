@@ -2,9 +2,7 @@ package com.tuts.prakash.retrofittutorial.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by praka on 12/24/2017.
- */
+
 
 public class RetroPhoto {
 
