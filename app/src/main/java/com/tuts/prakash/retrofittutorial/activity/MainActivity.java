@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.os.Handler;
+
 import com.tuts.prakash.retrofittutorial.R;
 import com.tuts.prakash.retrofittutorial.adapter.CustomAdapter;
 import com.tuts.prakash.retrofittutorial.menu;
@@ -33,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDoalog;
     private TextView textView7;
 
+    private final Handler handler = new Handler();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
         progressDoalog = new ProgressDialog(MainActivity.this);
         progressDoalog.setMessage("Loading....");
         progressDoalog.show();
+
+
+       // Intent intent = getIntent();
+//        this.mHandler = new Handler();
+//
+//        this.mHandler.postDelayed(m_Runnable,5000);
+
 
         /*Create handle for the RetrofitInstance interface*/
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
@@ -71,8 +84,36 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+        Button btn1= (Button) findViewById(R.id.refresh);
+
+        btn1.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+                    }
+                }
+        );
+
+        //createSum();
+
+        //createSum(photoList);
+
+
+//        finish();
+//        startActivity(intent);
+//        finish();
+//        startActivity(getIntent());
+
+        doTheAutoRefresh();
 
     }
+
+
+
+
+
+
+
 
     /*Method to generate List of data using RecyclerView with custom adapter*/
     private void generateDataList(List<RetroPhoto> photoList) {
@@ -84,19 +125,38 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-        //createSum(photoList);
-        this.textView7.setText("Total");
+
+        createSum(photoList);
+       // this.textView7.setText("Total");
     }
 
-//    private void createSum(List<RetroPhoto> photoList) {
-//        int sum = 0;
-//        for(RetroPhoto retroPhoto: photoList) {
-//            sum += Integer.parseInt(retroPhoto.getprice());
-//        }
-//        updateUI(sum);
-//    }
-//
-//    private void updateUI(int sum) {
-//        this.textView7.setText(sum);
-//    }
+   private void createSum(List<RetroPhoto> photoList) {
+        int sum = 0;
+
+//       for(int l=0; l<=5; l++){
+//           sum =  sum +1;
+//       }
+
+        for(RetroPhoto retroPhoto: photoList) {
+            sum = sum + (Integer.parseInt(retroPhoto.getprice()));
+        }
+        updateUI(sum);
+    }
+
+    private void updateUI(int sum) {
+        this.textView7.setText(Integer.toString(sum));
+
+    }
+
+
+    private void doTheAutoRefresh() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Write code for your refresh logic
+                //doTheAutoRefresh();
+            }
+        }, 5000);
+    }
+
 }
