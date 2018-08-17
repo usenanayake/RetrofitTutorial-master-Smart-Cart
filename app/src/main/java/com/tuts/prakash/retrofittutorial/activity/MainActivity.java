@@ -23,6 +23,8 @@ import com.tuts.prakash.retrofittutorial.payment;
 import com.tuts.prakash.retrofittutorial.userRegister;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView7;
 
     private final Handler handler = new Handler();
-
+    private Handler mHandler;
 
 
     @Override
@@ -47,15 +49,32 @@ public class MainActivity extends AppCompatActivity {
         progressDoalog = new ProgressDialog(MainActivity.this);
         progressDoalog.setMessage("Loading....");
         progressDoalog.show();
+        CallUI();
 
+        new Timer().schedule(new TimerTask(){
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        CallUI();
+                    };
+                });
+            }
+        }, 0, 5000);
 
-       // Intent intent = getIntent();
+//        Intent intent= getIntent();
 //        this.mHandler = new Handler();
-//
+//        Handler mHandler = new Handler();
 //        this.mHandler.postDelayed(m_Runnable,5000);
 
-
         /*Create handle for the RetrofitInstance interface*/
+
+
+    }
+
+    private void CallUI(){
+        System.out.println("pointing................");
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
         Call<List<RetroPhoto>> call = service.getAllPhotos();
@@ -104,11 +123,8 @@ public class MainActivity extends AppCompatActivity {
 //        finish();
 //        startActivity(getIntent());
 
-        doTheAutoRefresh();
-
+        //doTheAutoRefresh();
     }
-
-
 
 
 
@@ -149,14 +165,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void doTheAutoRefresh() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Write code for your refresh logic
-                //doTheAutoRefresh();
-            }
-        }, 5000);
-    }
+//    private void doTheAutoRefresh() {
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                // Write code for your refresh logic
+//                //doTheAutoRefresh();
+//            }
+//        }, 5000);
+//    }
 
 }
