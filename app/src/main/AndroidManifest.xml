@@ -31,7 +31,16 @@
 
         </activity>
         <activity android:name=".menu" />
-        <activity android:name=".promotion1.promotion" />
+        <activity android:name=".promotion1.promotion" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
         <activity android:name=".garments" />
         <activity android:name=".userRegister">
             <!--<intent-filter>-->
@@ -44,11 +53,11 @@
         <activity android:name=".cart"></activity>
         <activity android:name=".login1">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
 
         </activity>
