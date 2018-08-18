@@ -55,7 +55,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText4"
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
@@ -84,17 +84,18 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:ems="10"
-                    android:hint="Email"
-                    android:inputType="textPersonName"
+                    android:hint="Password"
+                    android:inputType="textPassword"
                     android:textColor="#001a33"
                     android:textColorHint="#00251a"
                     android:textSize="12sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -111,13 +112,13 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:ems="10"
-                    android:hint="Contact"
+                    android:hint="Email"
                     android:inputType="textPersonName"
                     android:textColor="#001a33"
                     android:textColorHint="#00251a"
@@ -140,13 +141,13 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText233s"
+                    android:id="@+id/contact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:ems="10"
-                    android:hint="Password"
+                    android:hint="Contact Number"
                     android:inputType="textPersonName"
                     android:textColor="#001a33"
                     android:textColorHint="#00251a"

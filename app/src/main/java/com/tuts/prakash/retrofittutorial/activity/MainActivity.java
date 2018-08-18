@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        createSum(photoList);
+        //createSum(photoList);
        // this.textView7.setText("Total");
     }
 

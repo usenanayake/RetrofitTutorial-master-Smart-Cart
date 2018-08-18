@@ -11,15 +11,11 @@ public class PostDetailsRequest{
     @SerializedName("price")
     private String price;
 
-//    @SerializedName("thumbnailUrl")
-//    private String thumbnailUrl;
-
     public PostDetailsRequest(String name, String price) {
 
         this.name = name;
         this.price = price;
 
-//        this.thumbnailUrl = thumbnailUrl;
     }
 
 
@@ -39,15 +35,4 @@ public class PostDetailsRequest{
         this.price = price;
     }
 
-
-
-
-
-//    public String getThumbnailUrl() {
-//        return thumbnailUrl;
-//    }
-//
-//    public void setThumbnailUrl(String thumbnailUrl) {
-//        this.thumbnailUrl = thumbnailUrl;
-//    }
 }

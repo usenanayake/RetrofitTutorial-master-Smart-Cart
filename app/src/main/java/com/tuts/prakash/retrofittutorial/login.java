@@ -51,7 +51,7 @@ public class login extends AppCompatActivity {
 
                         PostData service = RetrofitClientInstance.getRetrofitInstance().create(PostData.class);
 
-                        PostDetailsRequest post = new PostDetailsRequest(value,value2);
+                        PostDetailsRequest post = new PostDetailsRequest("socks",value2);
                         Call<PostDetailsRespond> call = service.savePost(post);
                         //service.deleteGist("fwgw");
                         call.enqueue(new Callback<PostDetailsRespond>() {
