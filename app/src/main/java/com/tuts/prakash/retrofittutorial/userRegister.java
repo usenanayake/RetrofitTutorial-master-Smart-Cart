@@ -13,9 +13,14 @@ import com.tuts.prakash.retrofittutorial.model.PostDetailsRequest;
 import com.tuts.prakash.retrofittutorial.model.PostDetailsRespond;
 import com.tuts.prakash.retrofittutorial.model.PostUserRequest;
 import com.tuts.prakash.retrofittutorial.model.PostUserRespond;
+import com.tuts.prakash.retrofittutorial.model.RetroPhoto;
+import com.tuts.prakash.retrofittutorial.network.GetDataService;
+import com.tuts.prakash.retrofittutorial.network.GetUser;
 import com.tuts.prakash.retrofittutorial.network.PostData;
 import com.tuts.prakash.retrofittutorial.network.PostUser;
 import com.tuts.prakash.retrofittutorial.network.RetrofitClientInstance;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +32,9 @@ public class userRegister extends AppCompatActivity {
     private EditText password;
     private EditText email;
     private EditText contact;
-   // private EditText name1;
+
+
+    //TextView txt = ( TextView) findViewById(R.id.test);
 
 
 
@@ -65,8 +72,16 @@ public class userRegister extends AppCompatActivity {
 
                             @Override
                             public void onResponse(Call<PostUserRespond> call, Response<PostUserRespond> response) {
-                                System.out.println("Success");
+                                System.out.println("sucess");
+
+//                                TextView txt = ( TextView) findViewById(R.id.test);
+//
+//                                txt.setText(response.body().getsuccess());
                                 Toast.makeText(userRegister.this, "Success", Toast.LENGTH_SHORT).show();
+
+                                startActivity(new Intent(userRegister.this, login1.class));
+
+
                             }
 
                             @Override
@@ -74,11 +89,22 @@ public class userRegister extends AppCompatActivity {
                                 System.out.println("invalid");
                                 Toast.makeText(userRegister.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
                                 t.printStackTrace();
+
+                                startActivity(new Intent(userRegister.this, userRegister.class));
+
                             }
                         });
 
 
-                        startActivity(new Intent(userRegister.this, login1.class));
+
+
+
+//                        GetUser sv = RetrofitClientInstance.getRetrofitInstance().create(GetUser.class);
+//
+//                        Call<List<PostUserRespond>> call2 = sv.getAllUsers();
+
+
+
                     }
                 }
         );

@@ -16,7 +16,7 @@ public interface PostData {
 
     @POST("/api/v1/productItem")
     Call<PostDetailsRespond> savePost(@Body PostDetailsRequest postDetailsRequest);
-
+//
 //    // delete Gist
 //    @DELETE("gists/{id}")
 //    Call<ResponseBody> deleteGist(@Path("id") String id);

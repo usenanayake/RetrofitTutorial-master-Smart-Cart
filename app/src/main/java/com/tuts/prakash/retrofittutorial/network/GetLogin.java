@@ -7,10 +7,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
+public interface GetLogin {
 
-
-public interface GetDataService {
-
-    @GET("/api/v1/productitems")
-    Call<List<RetroPhoto>> getAllPhotos();
+    @GET("/login")
+    Call<List<RetroPhoto>> getAllLogins();
 }

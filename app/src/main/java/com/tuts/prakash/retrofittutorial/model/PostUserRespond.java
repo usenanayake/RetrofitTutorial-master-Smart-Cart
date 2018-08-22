@@ -14,15 +14,18 @@ public class PostUserRespond {
     private String contactNumber;
     @SerializedName("userType")
     private String userType;
+    @SerializedName("success")
+    private String success;
 
 
-    public PostUserRespond(String name, String password, String email, String contactNumber, String userType) {
+    public PostUserRespond(String name, String password, String email, String contactNumber, String userType, String success) {
 
         this.name = name;
         this.password = password;
         this.email = email;
         this.contactNumber = contactNumber;
         this.userType = userType;
+        this.success = success;
 
     }
 
@@ -65,6 +68,14 @@ public class PostUserRespond {
 
     public void setuserType(String price) {
         this.userType = userType;
+    }
+
+    public String getsuccess() {
+        return success;
+    }
+
+    public void setsuccess(String success) {
+        this.success = success;
     }
 
 }

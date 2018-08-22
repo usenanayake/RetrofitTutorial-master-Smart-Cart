@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDoalog;
     private TextView textView7;
 
-    private final Handler handler = new Handler();
-    private Handler mHandler;
+    public String name;
+
+//    private final Handler handler = new Handler();
+//    private Handler mHandler;
 
 
     @Override
@@ -84,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<RetroPhoto>> call, Response<List<RetroPhoto>> response) {
                 progressDoalog.dismiss();
                 generateDataList(response.body());
+
+
             }
 
             @Override
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        Button btn1= (Button) findViewById(R.id.refresh);
+        Button btn1= (Button) findViewById(+R.id.refresh);
 
         btn1.setOnClickListener(
                 new Button.OnClickListener() {
@@ -142,16 +146,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //createSum(photoList);
+        createSum(photoList);
        // this.textView7.setText("Total");
     }
 
    private void createSum(List<RetroPhoto> photoList) {
         int sum = 0;
 
-//       for(int l=0; l<=5; l++){
-//           sum =  sum +1;
-//       }
+//        RetroPhoto ret ;
+//
+//        ret= photoList;
+
+//        name = ret.getname();
 
         for(RetroPhoto retroPhoto: photoList) {
             sum = sum + (Integer.parseInt(retroPhoto.getprice()));

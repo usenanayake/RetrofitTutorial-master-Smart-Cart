@@ -15,9 +15,7 @@ import com.tuts.prakash.retrofittutorial.model.RetroPhoto;
 
 import java.util.List;
 
-/**
- * Created by praka on 12/24/2017.
- */
+
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tuts.prakash.retrofittutorial.activity.MainActivity;
@@ -36,35 +37,46 @@ public class cart extends AppCompatActivity {
 
                         rfid = findViewById(R.id.id);
                         String value = rfid.getText().toString();
+                        Integer val = Integer.parseInt(value);
+
+                        if (val == 1) {
 
 
+                            //startActivity(new Intent(login.this, menu.class));
 
-                        //startActivity(new Intent(login.this, menu.class));
+                            PostCart service = RetrofitClientInstance.getRetrofitInstance().create(PostCart.class);
 
-                        PostCart service = RetrofitClientInstance.getRetrofitInstance().create(PostCart.class);
+                            PostCartRequest post = new PostCartRequest(value, "5b77c3850e55f262e6b8c593");
+                            Call<PostCartRespond> call = service.savePost(post);
+                            //service.deleteGist("fwgw");
+                            call.enqueue(new Callback<PostCartRespond>() {
 
-                        PostCartRequest post = new PostCartRequest(value,"5b77c3850e55f262e6b8c593");
-                        Call<PostCartRespond> call = service.savePost(post);
-                        //service.deleteGist("fwgw");
-                        call.enqueue(new Callback<PostCartRespond>() {
+                                @Override
+                                public void onResponse(Call<PostCartRespond> call, Response<PostCartRespond> response) {
+                                    System.out.println("Success");
+                                    Toast.makeText(cart.this, "Success", Toast.LENGTH_SHORT).show();
+                                }
 
-                            @Override
-                            public void onResponse(Call<PostCartRespond> call, Response<PostCartRespond> response) {
-                                System.out.println("Success");
-                                Toast.makeText(cart.this, "Success", Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onFailure(Call<PostCartRespond> call, Throwable t) {
-                                System.out.println("invalid");
-                                Toast.makeText(cart.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-                                t.printStackTrace();
-                            }
-                        });
+                                @Override
+                                public void onFailure(Call<PostCartRespond> call, Throwable t) {
+                                    System.out.println("invalid");
+                                    Toast.makeText(cart.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                                    t.printStackTrace();
+                                }
+                            });
 
 
-                        startActivity(new Intent(cart.this, MainActivity.class));
+                            startActivity(new Intent(cart.this, MainActivity.class));
+                        }else {
+
+                            TextView txt = ( TextView) findViewById(R.id.result);
+
+                            Toast.makeText(cart.this, "Cart is not currently available!", Toast.LENGTH_SHORT).show();
+
+                        }
+
                     }
+
                 }
         );
 
