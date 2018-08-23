@@ -39,7 +39,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/promo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -49,6 +49,17 @@
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="100dp"
+                android:background="#4286f4"
+                android:text="Logout"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
     </LinearLayout>

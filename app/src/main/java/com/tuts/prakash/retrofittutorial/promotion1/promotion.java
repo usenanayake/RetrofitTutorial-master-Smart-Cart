@@ -58,7 +58,7 @@ public class promotion extends AppCompatActivity {
 //
 //                        Call<List<RetroPhoto>> call = service.getAllPhotos();
 //
-//                       service.deleteGist("fwgw");
+//                       //service.deleteGist("fwgw");
 //
 //                        //startActivity(new Intent(promotion.this, userRegister.class));
 //                    }

@@ -98,7 +98,7 @@
                 android:text="Signup Here"
                 android:textAlignment="center"
                 android:textColor="#001a33"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout

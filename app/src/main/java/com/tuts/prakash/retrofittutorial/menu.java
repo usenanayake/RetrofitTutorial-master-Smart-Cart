@@ -24,5 +24,31 @@ public class menu extends AppCompatActivity {
                     }
                 }
         );
+
+
+
+        Button btn2= (Button) findViewById(R.id.promo);
+
+        btn2.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        startActivity(new Intent(menu.this, promo.class));
+                    }
+                }
+        );
+
+
+
+        Button btn3= (Button) findViewById(R.id.logout);
+
+        btn3.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        startActivity(new Intent(menu.this, login1.class));
+                    }
+                }
+        );
+
+
     }
 }
