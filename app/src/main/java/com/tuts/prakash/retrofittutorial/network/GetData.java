@@ -1,5 +1,6 @@
 package com.tuts.prakash.retrofittutorial.network;
 
+import com.tuts.prakash.retrofittutorial.model.PostDeleteRespond;
 import com.tuts.prakash.retrofittutorial.model.PostDetailsRequest;
 import com.tuts.prakash.retrofittutorial.model.PostDetailsRespond;
 import com.tuts.prakash.retrofittutorial.model.RetroPhoto;
@@ -18,5 +19,5 @@ public interface GetData {
     Call<List<RetroPhoto>> getAllPhotos();
 
    @DELETE("gists/{id}")
-    Call<PostDetailsRequest> deleteGist(@Path("id") String id);
+    Call<PostDeleteRespond> deleteGist(@Path("id") String id);
 }

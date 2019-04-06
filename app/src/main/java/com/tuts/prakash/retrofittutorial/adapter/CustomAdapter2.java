@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tuts.prakash.retrofittutorial.R;
 import com.tuts.prakash.retrofittutorial.model.RetroPhoto;
@@ -27,6 +29,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomVi
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
         public final View mView;
+        private Button mRemoveButton;
 
         TextView txtTitle;
         TextView txtTitle2;
@@ -39,6 +42,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomVi
             txtTitle = mView.findViewById(R.id.title);
             txtTitle2 = mView.findViewById(R.id.title2);
             coverImage = mView.findViewById(R.id.coverImage);
+            mRemoveButton = mView.findViewById(R.id.delete);
         }
     }
 
@@ -50,12 +54,15 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomVi
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, final int position) {
         if(dataList.get(position).getname().equals("0158CD")){
             //holder.txtTitle.setText(dataList.get(position).getname());
             //holder.txtTitle2.setText(dataList.get(position).getprice());
-            holder.txtTitle.setText("denim");
-            holder.txtTitle2.setText("1000");
+//            holder.txtTitle.setText("denim");
+//            holder.txtTitle2.setText("1000");
+
+            holder.txtTitle.setText("T shirt");
+            holder.txtTitle2.setText(dataList.get(position).getprice());
 
 
 //        Picasso.Builder builder = new Picasso.Builder(context);
@@ -66,10 +73,26 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomVi
 //                .into(holder.coverImage);
         }
         else {
-            holder.txtTitle.setText("skirt");
-            holder.txtTitle2.setText("690");
+//            holder.txtTitle.setText("skirt");
+//            holder.txtTitle2.setText("690");
+
+            holder.txtTitle.setText("Skirt");
+            holder.txtTitle2.setText(dataList.get(position).getprice());
 
         }
+
+        holder.mRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              dataList.remove(position);
+              notifyItemRemoved(position);
+
+                notifyItemRangeChanged(position,dataList.size());
+
+                // Show the removed item label
+                Toast.makeText(context,"Removed ",Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

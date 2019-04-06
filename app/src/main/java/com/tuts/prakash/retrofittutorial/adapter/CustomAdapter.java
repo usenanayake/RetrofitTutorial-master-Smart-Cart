@@ -57,8 +57,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         if(dataList.get(position).getname().equals("0158CD")){
             //holder.txtTitle.setText(dataList.get(position).getname());
             //holder.txtTitle2.setText(dataList.get(position).getprice());
-            holder.txtTitle.setText("denim");
-            holder.txtTitle2.setText("1000");
+
+            //holder.txtTitle2.setText("");
+
+
+            holder.txtTitle.setText("T shirt");
+            holder.txtTitle2.setText(dataList.get(position).getprice());
 
 
 //        Picasso.Builder builder = new Picasso.Builder(context);
@@ -69,8 +73,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 //                .into(holder.coverImage);
         }
       else {
-           holder.txtTitle.setText("skirt");
-            holder.txtTitle2.setText("690");
+
+           // holder.txtTitle2.setText("790");
+
+
+            holder.txtTitle.setText("Skirt");
+            holder.txtTitle2.setText(dataList.get(position).getprice());
 
        }
 

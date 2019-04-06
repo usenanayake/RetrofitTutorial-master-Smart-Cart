@@ -14,9 +14,12 @@ import android.widget.Toast;
 import com.tuts.prakash.retrofittutorial.R;
 import com.tuts.prakash.retrofittutorial.adapter.CustomAdapter2;
 import com.tuts.prakash.retrofittutorial.login1;
+import com.tuts.prakash.retrofittutorial.menu;
+import com.tuts.prakash.retrofittutorial.model.PostDeleteRespond;
 import com.tuts.prakash.retrofittutorial.model.RetroPhoto;
 import com.tuts.prakash.retrofittutorial.network.GetData;
 import com.tuts.prakash.retrofittutorial.network.RetrofitClientInstance;
+import com.tuts.prakash.retrofittutorial.promo;
 import com.tuts.prakash.retrofittutorial.userRegister;
 
 import java.util.List;
@@ -56,7 +59,25 @@ public class promotion extends AppCompatActivity {
 //
 //                        GetData service = RetrofitClientInstance.getRetrofitInstance().create(GetData.class);
 //
-//                        Call<List<RetroPhoto>> call = service.getAllPhotos();
+//                        Call<PostDeleteRespond> call = service.deleteGist("124");
+//
+//
+//                        call.enqueue(new Callback<PostDeleteRespond>() {
+//
+//                            @Override
+//                            public void onResponse(Call<PostDeleteRespond> call, Response<PostDeleteRespond> response) {
+//                                progressDoalog.dismiss();
+//                                if (response.isSuccessful()) {
+//                                    Toast.makeText(promotion.this, "deleted", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Call<PostDeleteRespond> call, Throwable t) {
+//                                progressDoalog.dismiss();
+//                                Toast.makeText(promotion.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
 //
 //                       //service.deleteGist("fwgw");
 //
@@ -85,6 +106,18 @@ public class promotion extends AppCompatActivity {
                 Toast.makeText(promotion.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+        Button txt= (Button) findViewById(R.id.logout);
+
+        txt.setOnClickListener(
+                new TextView.OnClickListener() {
+                    public void onClick(View v) {
+                        startActivity(new Intent(promotion.this, login1.class));
+                    }
+                }
+        );
     }
 
     /*Method to generate List of data using RecyclerView with custom adapter*/
